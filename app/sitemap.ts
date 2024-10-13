@@ -2,7 +2,9 @@ import { MetadataRoute } from 'next';
 import { getBlogPosts } from './lib/posts';
 import { metaData } from './config';
 
-const BaseUrl = metaData.baseUrl.endsWith('/') ? metaData.baseUrl : `${metaData.baseUrl}/`;
+const BaseUrl = metaData.baseUrl.endsWith('/')
+  ? metaData.baseUrl
+  : `${metaData.baseUrl}/`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogs = getBlogPosts().map((post) => ({
