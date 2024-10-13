@@ -27,8 +27,6 @@ setup: clean
 		npm install -g pnpm; \
 	fi
 	pnpm setup
-	$(PNPM) install pre-commit
-	pre-commit install
 
 # Install dependencies
 install: setup
