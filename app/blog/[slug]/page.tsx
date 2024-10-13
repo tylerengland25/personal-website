@@ -12,23 +12,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }): Promise<Metadata | undefined> {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
-  const ogImage = image
-    ? image
-    : `${metaData.baseUrl}/og?title=${encodeURIComponent(title)}`;
+  let { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
+  let ogImage = image ? image : `${metaData.baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -85,9 +76,7 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title mb-3 font-medium text-2xl tracking-tight">
-        {post.metadata.title}
-      </h1>
+      <h1 className="title mb-3 font-medium text-2xl tracking-tight">{post.metadata.title}</h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-medium">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.metadata.publishedAt)}

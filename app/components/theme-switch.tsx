@@ -9,12 +9,7 @@ const storageKey = 'theme-preference';
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      {...props}
-    >
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem {...props}>
       {children}
     </NextThemesProvider>
   );
@@ -71,12 +66,7 @@ export const ThemeSwitch: React.FC = () => {
   };
 
   if (!mounted) {
-    return (
-      <FaCircleHalfStroke
-        className="h-[14px] w-[14px] text-[#1c1c1c]"
-        aria-hidden="true"
-      />
-    );
+    return <FaCircleHalfStroke className="h-[14px] w-[14px] text-[#1c1c1c]" aria-hidden="true" />;
   }
 
   return (

@@ -10,15 +10,15 @@ type Metadata = {
 };
 
 function parseFrontmatter(fileContent: string) {
-  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  const match = frontmatterRegex.exec(fileContent);
-  const frontMatterBlock = match![1];
-  const content = fileContent.replace(frontmatterRegex, '').trim();
-  const frontMatterLines = frontMatterBlock.trim().split('\n');
-  const metadata: Partial<Metadata> = {};
+  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  let match = frontmatterRegex.exec(fileContent);
+  let frontMatterBlock = match![1];
+  let content = fileContent.replace(frontmatterRegex, '').trim();
+  let frontMatterLines = frontMatterBlock.trim().split('\n');
+  let metadata: Partial<Metadata> = {};
 
   frontMatterLines.forEach((line) => {
-    const [key, ...valueArr] = line.split(': ');
+    let [key, ...valueArr] = line.split(': ');
     let value = valueArr.join(': ').trim();
     value = value.replace(/^['"](.*)['"]$/, '$1');
     metadata[key.trim() as keyof Metadata] = value;
@@ -32,7 +32,7 @@ function getMDXFiles(dir: string) {
 }
 
 function readMDXFile(filePath: string) {
-  const rawContent = fs.readFileSync(filePath, 'utf-8');
+  let rawContent = fs.readFileSync(filePath, 'utf-8');
   return parseFrontmatter(rawContent);
 }
 
@@ -55,7 +55,7 @@ export function getBlogPosts() {
 }
 
 export function formatDate(date: string, includeRelative = false) {
-  const currentDate = new Date();
+  let currentDate = new Date();
   if (!date.includes('T')) {
     date = `${date}T00:00:00`;
   }
@@ -77,7 +77,7 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = 'Today';
   }
 
-  const fullDate = targetDate.toLocaleString('en-us', {
+  let fullDate = targetDate.toLocaleString('en-us', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',

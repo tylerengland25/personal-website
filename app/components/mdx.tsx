@@ -12,7 +12,7 @@ import remarkMath from 'remark-math';
 import 'katex/dist/katex.min.css';
 
 function CustomLink(props) {
-  const href = props.href;
+  let href = props.href;
   if (href.startsWith('/')) {
     return (
       <Link href={href} {...props}>
@@ -36,10 +36,8 @@ function Code({ children, ...props }) {
 }
 
 function Table({ data }) {
-  const headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
-  const rows = data.rows.map((row, index) => (
+  let headers = data.headers.map((header, index) => <th key={index}>{header}</th>);
+  let rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
         <td key={cellIndex}>{cell}</td>
@@ -76,8 +74,8 @@ function slugify(str) {
     .trim()
     .replace(/\s+/g, '-')
     .replace(/&/g, '-and-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-');
+    .replace(/[^\w-]+/g, '')
+    .replace(/-+/g, '-');
 }
 
 function createHeading(level) {
