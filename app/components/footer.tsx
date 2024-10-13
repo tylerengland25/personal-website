@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import { FaXTwitter, FaGithub, FaInstagram, FaRss, FaLinkedinIn } from 'react-icons/fa6';
 import { TbMailFilled } from 'react-icons/tb';
 import { metaData, socialLinks } from 'app/config';

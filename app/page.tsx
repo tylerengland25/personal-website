@@ -4,7 +4,7 @@ import { socialLinks } from './config';
 export default function Page() {
   return (
     <section>
-      <a href={socialLinks.twitter} target="_blank">
+      <a href={socialLinks.twitter} target="_blank" rel="noreferrer">
         <Image
           src="/profile.png"
           alt="Profile photo"
@@ -29,6 +29,7 @@ export default function Page() {
           <a
             target="_blank"
             href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
+            rel="noreferrer"
           >
             more
           </a>
@@ -45,6 +46,7 @@ export default function Page() {
           <a
             href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio"
             target="_blank"
+            rel="noreferrer"
           >
             Deploy
           </a>{' '}
