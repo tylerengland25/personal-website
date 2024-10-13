@@ -1,10 +1,10 @@
-import React from "react";
-import type { Metadata } from "next";
-import { projects } from "./project-data";
+import React from 'react';
+import type { Metadata } from 'next';
+import { projects } from './project-data';
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "My Projects",
+  title: 'Projects',
+  description: 'My Projects',
 };
 
 export default function Projects() {
@@ -29,9 +29,7 @@ export default function Projects() {
                   {project.year}
                 </span>
               </div>
-              <p className="prose prose-neutral dark:prose-invert pt-3">
-                {project.description}
-              </p>
+              <p className="prose prose-neutral dark:prose-invert pt-3">{project.description}</p>
             </div>
           </a>
         ))}

@@ -1,26 +1,26 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { highlight } from "sugar-high";
-import { TweetComponent } from "./tweet";
-import { CaptionComponent } from "./caption";
-import { YouTubeComponent } from "./youtube";
-import { ImageGrid } from "./image-grid";
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
-import "katex/dist/katex.min.css";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { highlight } from 'sugar-high';
+import { TweetComponent } from './tweet';
+import { CaptionComponent } from './caption';
+import { YouTubeComponent } from './youtube';
+import { ImageGrid } from './image-grid';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
+import 'katex/dist/katex.min.css';
 
 function CustomLink(props) {
   let href = props.href;
-  if (href.startsWith("/")) {
+  if (href.startsWith('/')) {
     return (
       <Link href={href} {...props}>
         {props.children}
       </Link>
     );
   }
-  if (href.startsWith("#")) {
+  if (href.startsWith('#')) {
     return <a {...props} />;
   }
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
@@ -36,9 +36,7 @@ function Code({ children, ...props }) {
 }
 
 function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
+  let headers = data.headers.map((header, index) => <th key={index}>{header}</th>);
   let rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
@@ -74,10 +72,10 @@ function slugify(str) {
     .toString()
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, "-")
-    .replace(/&/g, "-and-")
-    .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-");
+    .replace(/\s+/g, '-')
+    .replace(/&/g, '-and-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/-+/g, '-');
 }
 
 function createHeading(level) {
@@ -87,10 +85,10 @@ function createHeading(level) {
       `h${level}`,
       { id: slug },
       [
-        React.createElement("a", {
+        React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: "anchor",
+          className: 'anchor',
         }),
       ],
       children

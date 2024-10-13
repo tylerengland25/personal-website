@@ -22,3 +22,11 @@ repos:
     hooks:
       - id: prettier
         types_or: [javascript, css]
+
+  - repo: local
+    hooks:
+      - id: lint
+        name: Run linter
+        entry: make lint
+        language: system
+        pass_filenames: false

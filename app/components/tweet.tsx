@@ -1,12 +1,7 @@
-import { getTweet } from "react-tweet/api";
-import { Suspense } from "react";
-import {
-  TweetSkeleton,
-  EmbeddedTweet,
-  TweetNotFound,
-  type TweetProps,
-} from "react-tweet";
-import "./tweet.css";
+import { getTweet } from 'react-tweet/api';
+import { Suspense } from 'react';
+import { TweetSkeleton, EmbeddedTweet, TweetNotFound, type TweetProps } from 'react-tweet';
+import './tweet.css';
 
 const TweetContent = async ({ id, components, onError }: TweetProps) => {
   let error;

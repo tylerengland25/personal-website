@@ -21,7 +21,7 @@ help:
 	@echo "  $(CYAN)build$(RESET)              : Build the project for production"
 
 # Set up the project
-setup:
+setup: clean
 	@if ! command -v pnpm &> /dev/null; then \
 		echo "Installing pnpm..."; \
 		npm install -g pnpm; \
@@ -40,7 +40,7 @@ format:
 
 # Lint code
 lint:
-	$(PNPM) exec eslint "app/**/*.{js,jsx,ts,tsx}"
+	$(PNPM) run lint
 
 # Run tests
 test:
@@ -55,7 +55,7 @@ clean:
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
 	rm -rf $(VENV)
-	rm -rf frontend/node_modules
+	rm -rf node_modules
 
 # Run the development server
 run:
