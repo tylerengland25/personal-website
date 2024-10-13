@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { ThemeSwitch } from "./theme-switch";
-import { metaData } from "../config";
+import Link from 'next/link';
+import { ThemeSwitch } from './theme-switch';
+import { metaData } from '../config';
 
 const navItems = {
-  "/blog": { name: "Blog" },
-  "/projects": { name: "Projects" },
-  "/photos": { name: "Photos" },
+  '/blog': { name: 'Blog' },
+  '/projects': { name: 'Projects' },
+  '/photos': { name: 'Photos' },
 };
 
 export function Navbar() {

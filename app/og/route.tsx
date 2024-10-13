@@ -1,9 +1,9 @@
-import { ImageResponse } from "next/og";
-import { metaData } from "app/config";
+import { ImageResponse } from 'next/og';
+import { metaData } from 'app/config';
 
 export function GET(request: Request) {
-  let url = new URL(request.url);
-  let title = url.searchParams.get("title") || metaData.title;
+  const url = new URL(request.url);
+  const title = url.searchParams.get('title') || metaData.title;
 
   return new ImageResponse(
     (

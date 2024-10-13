@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { formatDate, getBlogPosts } from "app/lib/posts";
+import Link from 'next/link';
+import { formatDate, getBlogPosts } from 'app/lib/posts';
 
 export const metadata = {
-  title: "Blog",
-  description: "Nextfolio Blog",
+  title: 'Blog',
+  description: 'Nextfolio Blog',
 };
 
 export default function BlogPosts() {
-  let allBlogs = getBlogPosts();
+  const allBlogs = getBlogPosts();
 
   return (
     <section>
