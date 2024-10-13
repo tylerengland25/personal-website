@@ -36,17 +36,17 @@ install: setup
 format:
 	$(PNPM) exec prettier --write "app/**/*.{js,jsx,ts,tsx,css,scss}" "content/**/*.mdx"
 
+# Run pre-commit hooks on all files
+pre-commit:
+	pre-commit run --all-files
+
 # Lint code
-lint:
+lint: format
 	$(PNPM) run lint
 
 # Run tests
 test:
 	$(PNPM) test
-
-# Run pre-commit hooks on all files
-pre-commit:
-	pre-commit run --all-files
 
 # Clean up generated files
 clean:
