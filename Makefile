@@ -36,11 +36,11 @@ install: setup
 
 # Format code
 format:
-	$(PNPM) exec prettier --write "*.{js,jsx,ts,tsx,css,scss}"
+	$(PNPM) exec prettier --write "app/**/*.{js,jsx,ts,tsx,css,scss}" "content/**/*.mdx"
 
 # Lint code
 lint:
-	$(PNPM) exec eslint "*.{js,jsx,ts,tsx}"
+	$(PNPM) exec eslint "app/**/*.{js,jsx,ts,tsx}"
 
 # Run tests
 test:
