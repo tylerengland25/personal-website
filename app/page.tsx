@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { socialLinks } from "./config";
+import Image from 'next/image';
+import { socialLinks } from './config';
 
 export default function Page() {
   return (
     <section>
-      <a href={socialLinks.twitter} target="_blank">
+      <a href={socialLinks.twitter} target="_blank" rel="noreferrer">
         <Image
           src="/profile.png"
           alt="Profile photo"
@@ -28,36 +28,38 @@ export default function Page() {
         <p>
           Nextfolio includes all the essentials for a stunning portfolio: SEO,
           MDX support, RSS, Atom, & JSON feeds, analytics, tweet & YouTube
-          embeds, KaTeX integration, and{" "}
+          embeds, KaTeX integration, and{' '}
           <a
             target="_blank"
             href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
+            rel="noreferrer"
           >
             more
           </a>
           .
         </p>
         <p>
-          Nextfolio is{" "}
-          <a href={socialLinks.github} target="_blank">
+          Nextfolio is{' '}
+          <a href={socialLinks.github} target="_blank" rel="noreferrer">
             open-source
-          </a>{" "}
+          </a>{' '}
           and fully customizable, making it easy to add more features.
         </p>
         <p>
           <a
             href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio"
             target="_blank"
+            rel="noreferrer"
           >
             Deploy
-          </a>{" "}
+          </a>{' '}
           your Nextfolio site with Vercel in minutes and follow the set up
-          instructions in the{" "}
+          instructions in the{' '}
           <a href="/blog/getting-started">Getting Started</a> post.
         </p>
         <p>
-          Built and maintained by{" "}
-          <a href="https://imsirius.xyz/" target="_blank">
+          Built and maintained by{' '}
+          <a href="https://imsirius.xyz/" target="_blank" rel="noreferrer">
             Sirius
           </a>
           .

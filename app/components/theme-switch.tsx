@@ -1,9 +1,9 @@
-"use client";
-import * as React from "react";
-import { useTheme } from "next-themes";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { ThemeProviderProps } from "next-themes/dist/types";
-import { FaCircleHalfStroke } from "react-icons/fa6";
+'use client';
+import * as React from 'react';
+import { useTheme } from 'next-themes';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import type { ThemeProviderProps } from 'next-themes/dist/types';
+import { FaCircleHalfStroke } from 'react-icons/fa6';
 
 const storageKey = 'theme-preference';
 
@@ -23,7 +23,9 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 export const ThemeSwitch: React.FC = () => {
   const { setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
-  const [currentTheme, setCurrentTheme] = React.useState<'light' | 'dark'>('light');
+  const [currentTheme, setCurrentTheme] = React.useState<'light' | 'dark'>(
+    'light'
+  );
 
   const getColorPreference = (): 'light' | 'dark' => {
     if (typeof window !== 'undefined') {
@@ -31,9 +33,11 @@ export const ThemeSwitch: React.FC = () => {
       if (storedPreference) {
         return storedPreference as 'light' | 'dark';
       }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
     }
-    return 'light'; 
+    return 'light';
   };
 
   const reflectPreference = (theme: 'light' | 'dark') => {
@@ -84,7 +88,7 @@ export const ThemeSwitch: React.FC = () => {
     >
       <FaCircleHalfStroke
         className={`h-[14px] w-[14px] ${
-          currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
+          currentTheme === 'dark' ? 'text-[#D4D4D4]' : 'text-[#1c1c1c]'
         }`}
       />
     </button>
