@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { socialLinks } from "./config";
+import Image from 'next/image';
+import { socialLinks } from './config';
 
 export default function Page() {
   return (
@@ -16,19 +16,16 @@ export default function Page() {
         />
       </a>
 
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        Portfolio, made simple!
-      </h1>
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">Portfolio, made simple!</h1>
 
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          A clean, fast, and lightweight portfolio template built with Next.js,
-          Vercel, and Tailwind CSS for optimal performance.
+          A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind
+          CSS for optimal performance.
         </p>
         <p>
-          Nextfolio includes all the essentials for a stunning portfolio: SEO,
-          MDX support, RSS, Atom, & JSON feeds, analytics, tweet & YouTube
-          embeds, KaTeX integration, and{" "}
+          Nextfolio includes all the essentials for a stunning portfolio: SEO, MDX support, RSS,
+          Atom, & JSON feeds, analytics, tweet & YouTube embeds, KaTeX integration, and{' '}
           <a
             target="_blank"
             href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
@@ -38,10 +35,10 @@ export default function Page() {
           .
         </p>
         <p>
-          Nextfolio is{" "}
+          Nextfolio is{' '}
           <a href={socialLinks.github} target="_blank">
             open-source
-          </a>{" "}
+          </a>{' '}
           and fully customizable, making it easy to add more features.
         </p>
         <p>
@@ -50,13 +47,12 @@ export default function Page() {
             target="_blank"
           >
             Deploy
-          </a>{" "}
-          your Nextfolio site with Vercel in minutes and follow the set up
-          instructions in the{" "}
+          </a>{' '}
+          your Nextfolio site with Vercel in minutes and follow the set up instructions in the{' '}
           <a href="/blog/getting-started">Getting Started</a> post.
         </p>
         <p>
-          Built and maintained by{" "}
+          Built and maintained by{' '}
           <a href="https://imsirius.xyz/" target="_blank">
             Sirius
           </a>
