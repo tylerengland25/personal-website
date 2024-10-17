@@ -8,9 +8,9 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  twitter: 'https://x.com/1tssirius',
-  github: 'https://github.com/1msirius/Nextfolio',
-  instagram: 'https://www.instagram.com/',
-  linkedin: 'https://www.linkedin.com/',
-  email: 'mailto:example@gmail.com',
+  twitter: 'https://x.com/tylertalksshop',
+  github: 'https://github.com/tylerengland25/',
+  instagram: 'https://www.instagram.com/tyler_england25/',
+  linkedin: 'https://www.linkedin.com/in/tyler-england-50b8b9192/',
+  email: 'tyler_england35@yahoo.com',
 };
