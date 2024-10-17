@@ -4,7 +4,7 @@ export const metaData = {
   name: 'Tyler',
   ogImage: '/opengraph-image.png',
   description:
-    'A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance.',
+    'A data scientist specializing in sports analytics, leveraging expertise in modeling, simulations, and distributed computing to provide actionable insights. Explore my portfolio of projects that blend technical proficiency with a passion for sports.',
 };
 
 export const socialLinks = {
