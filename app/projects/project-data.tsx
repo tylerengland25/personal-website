@@ -13,15 +13,15 @@ export const projects: Project[] = [
     year: 2023,
     description: 'Real-time sports analytics and visualization platform',
     url: 'https://example.com/sports-dashboard',
-    imageUrl: '/projects/sports-dashboard.jpg',
+    imageUrl: '/projects/sports-betting.png',
     featured: true,
   },
   {
-    title: 'ML Prediction Model',
+    title: 'Stock Price Prediction',
     year: 2023,
-    description: 'Machine learning model for predicting game outcomes',
-    url: 'https://example.com/ml-prediction',
-    imageUrl: '/projects/ml-prediction.jpg',
+    description: 'Machine learning model for predicting stock prices',
+    url: 'https://example.com/stock-prediction',
+    imageUrl: '/projects/stock-analysis.jpeg',
     featured: true,
   },
   {
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     year: 2022,
     description: 'Comprehensive athlete performance tracking system',
     url: 'https://example.com/metrics-tool',
-    imageUrl: '/projects/metrics-tool.jpg',
+    imageUrl: '/projects/discord-stock-thumbnail.png',
     featured: true,
   },
   {
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.',
     url: 'https://example.com/',
-    imageUrl: '/projects/project-one.jpg',
+    imageUrl: '/projects/metrics-tool.jpg',
     featured: false,
   },
   {

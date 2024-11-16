@@ -12,7 +12,7 @@ export default function FeaturedProjects() {
           Projects
         </h2>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-[65%]">
+      <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 w-[70%]">
         {featuredProjects.map((project) => (
           <Link
             key={project.title}
