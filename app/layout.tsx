@@ -8,6 +8,20 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './components/footer';
 import { ThemeProvider } from './components/theme-switch';
 import { metaData } from './config';
+import { Space_Grotesk } from 'next/font/google';
+import { DM_Mono } from 'next/font/google';
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['700'],
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
+
+const dmMono = DM_Mono({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-dm-mono',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -74,7 +88,9 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40">
+      <body
+        className={`antialiased ${dmMono.variable} flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
