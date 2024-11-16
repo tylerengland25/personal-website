@@ -1,9 +1,12 @@
 import Hero from './components/hero';
+import Skills from './components/skills';
 import FeaturedProjects from './components/featured-projects';
+
 export default function Page() {
   return (
     <section className="max-w-full">
       <Hero />
+      <Skills />
       <FeaturedProjects />
       <div className="prose prose-neutral dark:prose-invert">
         <p>
@@ -13,7 +16,6 @@ export default function Page() {
           modeling, machine learning, and distributed computing to drive
           performance, strategy, and predictions.
         </p>
-        {/* Rest of your existing content */}
       </div>
     </section>
   );
