@@ -29,7 +29,7 @@ export function Navbar() {
             <Link
               key={path}
               href={path}
-              className="font-mono text-lg text-[#F2F2F2] hover:text-white transition-colors duration-200 tracking-wide"
+              className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
             >
               {name}
             </Link>
@@ -55,7 +55,7 @@ export function Navbar() {
             <Link
               key={path}
               href={path}
-              className="font-mono text-lg text-[#F2F2F2] hover:text-white transition-colors duration-200 tracking-wide"
+              className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
             >
               {name}
             </Link>
