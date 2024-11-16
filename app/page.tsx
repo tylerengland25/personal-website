@@ -2,7 +2,7 @@ import Hero from './components/hero';
 
 export default function Page() {
   return (
-    <section>
+    <section className="max-w-full">
       <Hero />
       <div className="prose prose-neutral dark:prose-invert">
         <p>
