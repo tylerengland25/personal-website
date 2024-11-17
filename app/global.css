@@ -34,10 +34,6 @@
   --sh-entity: #e25a1c;
 }
 
-html {
-  min-width: 360px;
-}
-
 .prose {
   @apply text-[#333333] dark:text-[#D4D4D4];
 }

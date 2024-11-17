@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ThemeSwitch } from './theme-switch';
 import { Space_Grotesk } from 'next/font/google';
@@ -14,12 +16,33 @@ const navItems = {
     { path: '/blog', name: 'BLOG' },
   ],
   right: [
-    { path: '/about', name: 'ABOUT' },
+    { path: '/#about', name: 'ABOUT' },
     { path: '/contact', name: 'CONTACT' },
   ],
 };
 
 export function Navbar() {
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // Only handle hash links
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.replace('/#', '');
+      const elem = document.getElementById(targetId);
+
+      if (elem) {
+        elem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        // Optionally update the URL
+        window.history.pushState({}, '', href);
+      }
+    }
+  };
+
   return (
     <header className="w-full max-w-7xl mx-auto px-4">
       <nav className="flex items-center justify-center py-12">
@@ -30,6 +53,7 @@ export function Navbar() {
               key={path}
               href={path}
               className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
+              onClick={(e) => handleScroll(e, path)}
             >
               {name}
             </Link>
@@ -56,6 +80,7 @@ export function Navbar() {
               key={path}
               href={path}
               className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
+              onClick={(e) => handleScroll(e, path)}
             >
               {name}
             </Link>
