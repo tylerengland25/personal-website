@@ -11,18 +11,26 @@ export default function About() {
         <div className="prose prose-neutral dark:prose-invert">
           <p>
             Tyler is a data scientist and software developer specializing in
-            sports analytics and predictive modeling. With over 5 years of
-            experience spanning both startups and consulting, he has developed a
-            comprehensive skill set in transforming complex data into actionable
-            insights.
+            sports analytics and predictive modeling. A Computer Science
+            graduate from California Polytechnic State University San Luis
+            Obispo, he discovered his passion for sports analytics early on,
+            successfully developing NFL and NBA player prop prediction models
+            that funded his college expenses.
           </p>
           <p>
-            His expertise lies at the intersection of sports technology and data
-            science, where he leverages advanced machine learning techniques and
-            distributed computing to develop innovative solutions. Tyler has
-            successfully implemented various projects ranging from real-time
-            analytics dashboards to sophisticated prediction models that have
-            helped organizations make data-driven decisions.
+            His professional journey began at PricewaterhouseCoopers, where he
+            built data solutions and business applications. Following his
+            passion for sports analytics, he then joined Swish Analytics, where
+            he currently supports football products, manages machine learning
+            infrastructure, and leads documentation efforts.
+          </p>
+          <p>
+            With over 5 years of experience spanning consulting and startups,
+            Tyler leverages advanced machine learning techniques and distributed
+            computing to develop innovative solutions. He has successfully
+            implemented various projects ranging from real-time analytics
+            dashboards to sophisticated prediction models that have helped
+            organizations make data-driven decisions.
           </p>
           <p>
             Beyond his technical capabilities, Tyler is passionate about making
