@@ -1,35 +1,93 @@
+'use client';
+
 import Link from 'next/link';
 import { ThemeSwitch } from './theme-switch';
-import { metaData } from '../config';
+import { Space_Grotesk } from 'next/font/google';
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['700'], // Bold weight
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
 
 const navItems = {
-  '/blog': { name: 'Blog' },
-  '/projects': { name: 'Projects' },
-  '/photos': { name: 'Photos' },
+  left: [
+    { path: '/projects', name: 'PROJECTS' },
+    { path: '/blog', name: 'BLOG' },
+  ],
+  right: [
+    { path: '/#about', name: 'ABOUT' },
+    { path: '/contact', name: 'CONTACT' },
+  ],
 };
 
 export function Navbar() {
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // Only handle hash links
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.replace('/#', '');
+      const elem = document.getElementById(targetId);
+
+      if (elem) {
+        elem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        // Optionally update the URL
+        window.history.pushState({}, '', href);
+      }
+    }
+  };
+
   return (
-    <nav className="lg:mb-16 mb-12 py-5">
-      <div className="flex flex-col md:flex-row md:items-center justify-between">
-        <div className="flex items-center">
-          <Link href="/" className="text-3xl font-semibold tracking-tight">
-            {metaData.title}
-          </Link>
-        </div>
-        <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
-          {Object.entries(navItems).map(([path, { name }]) => (
+    <header className="w-full max-w-7xl mx-auto px-4">
+      <nav className="flex items-center justify-center py-12">
+        {/* Left Navigation Items */}
+        <div className="flex-1 flex items-center justify-end space-x-24">
+          {navItems.left.map(({ path, name }) => (
             <Link
               key={path}
               href={path}
-              className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
+              className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
+              onClick={(e) => handleScroll(e, path)}
+            >
+              {name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Centered Name */}
+        <Link
+          href="/"
+          className={`flex flex-col items-center text-center mx-24 ${spaceGrotesk.className}`}
+        >
+          <span className="text-5xl font-bold tracking-tight uppercase hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
+            Tyler
+          </span>
+          <span className="text-5xl font-bold tracking-tight uppercase hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
+            England
+          </span>
+        </Link>
+
+        {/* Right Navigation Items */}
+        <div className="flex-1 flex items-center justify-start space-x-24">
+          {navItems.right.map(({ path, name }) => (
+            <Link
+              key={path}
+              href={path}
+              className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
+              onClick={(e) => handleScroll(e, path)}
             >
               {name}
             </Link>
           ))}
           <ThemeSwitch />
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

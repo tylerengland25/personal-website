@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        'space-grotesk': ['var(--font-space-grotesk)', 'sans-serif'],
+        'roboto-flex': ['var(--font-roboto-flex)', 'sans-serif'],
       },
       typography: {
         quoteless: {
