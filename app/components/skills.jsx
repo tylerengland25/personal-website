@@ -27,8 +27,8 @@ export default function Skills() {
   return (
     <div className="mb-32 flex flex-col items-center">
       <div className="w-[50%] max-w-xl">
-        <div className="flex justify-center mb-4">
-          <h2 className="text-3xl font-space-grotesk font-medium tracking-tight text-neutral-800 dark:text-neutral-200 w-fit">
+        <div className="flex justify-center mb-8">
+          <h2 className="text-2xl font-space-grotesk font-semibold tracking-tight text-neutral-800 dark:text-neutral-200 w-fit uppercase">
             Technical Skills
           </h2>
         </div>

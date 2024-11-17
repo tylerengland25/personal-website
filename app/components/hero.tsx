@@ -6,12 +6,12 @@ export default function Hero() {
       <div className="w-[50%] max-w-xl flex flex-col items-center gap-12">
         <div className="w-full">
           <div className="flex justify-center mb-4">
-            <h2 className="text-3xl font-space-grotesk font-medium tracking-tight text-neutral-800 dark:text-neutral-200 w-fit">
+            <h2 className="text-2xl font-space-grotesk font-semibold tracking-tight text-neutral-800 dark:text-neutral-200 w-fit uppercase">
               Software Developer
             </h2>
           </div>
           <div className="pl-0">
-            <p className="font-inter text-neutral-800 dark:text-neutral-200 leading-relaxed">
+            <p className="font-roboto-flex text-neutral-800 dark:text-neutral-200 leading-relaxed">
               Passionate about leveraging technology to solve complex problems
               in sports analytics. With expertise in full-stack development and
               data science, I specialize in transforming complex data into

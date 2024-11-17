@@ -9,7 +9,7 @@ export default function FeaturedProjects() {
     <div className="mb-32 flex flex-col items-center">
       <div className="w-[50%] max-w-xl mb-8">
         <div className="flex justify-center">
-          <h2 className="text-3xl font-space-grotesk font-medium tracking-tight text-neutral-800 dark:text-neutral-200 w-fit">
+          <h2 className="text-2xl font-space-grotesk font-semibold tracking-tight text-neutral-800 dark:text-neutral-200 w-fit uppercase">
             Projects
           </h2>
         </div>
@@ -30,8 +30,12 @@ export default function FeaturedProjects() {
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
               </div>
-              <h3 className="mb-2 text-lg font-semibold">{project.title}</h3>
-              <p className="text-sm text-gray-600">{project.description}</p>
+              <h3 className="mb-2 text-lg font-space-grotesk font-semibold">
+                {project.title}
+              </h3>
+              <p className="text-sm font-roboto-flex text-gray-600">
+                {project.description}
+              </p>
             </Link>
           ))}
         </div>

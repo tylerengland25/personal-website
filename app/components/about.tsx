@@ -6,12 +6,12 @@ export default function About() {
     >
       <div className="w-[50%] max-w-xl">
         <div className="flex justify-center mb-4">
-          <h2 className="text-3xl font-space-grotesk font-medium tracking-tight text-neutral-800 dark:text-neutral-200 w-fit">
+          <h2 className="text-2xl font-space-grotesk font-semibold tracking-tight text-neutral-800 dark:text-neutral-200 w-fit uppercase">
             About
           </h2>
         </div>
         <div className="pl-0">
-          <div className="prose prose-neutral dark:prose-invert">
+          <div className="prose prose-neutral dark:prose-invert font-roboto-flex">
             <p>
               Tyler is a data scientist and software developer specializing in
               sports analytics and predictive modeling. A Computer Science
