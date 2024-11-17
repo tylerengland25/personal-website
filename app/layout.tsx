@@ -8,19 +8,16 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './components/footer';
 import { ThemeProvider } from './components/theme-switch';
 import { metaData } from './config';
-import { Space_Grotesk } from 'next/font/google';
-import { DM_Mono } from 'next/font/google';
+import { Space_Grotesk, Roboto_Flex } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({
-  weight: ['700'],
   subsets: ['latin'],
   variable: '--font-space-grotesk',
 });
 
-const dmMono = DM_Mono({
-  weight: '400',
+const robotoFlex = Roboto_Flex({
   subsets: ['latin'],
-  variable: '--font-dm-mono',
+  variable: '--font-roboto-flex',
 });
 
 export const metadata: Metadata = {
@@ -67,7 +64,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${robotoFlex.variable}`}
+    >
       <body>
         <ThemeProvider>
           <main className="max-w-[90vw] mx-auto">

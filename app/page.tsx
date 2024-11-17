@@ -7,9 +7,9 @@ export default function Page() {
   return (
     <section className="max-w-full">
       <Hero />
-      <Skills />
       <FeaturedProjects />
       <About />
+      <Skills />
     </section>
   );
 }
