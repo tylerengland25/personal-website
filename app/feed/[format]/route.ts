@@ -1,13 +1,13 @@
-import { Feed } from "feed";
-import { getBlogPosts } from "app/lib/posts";
-import { metaData } from "app/config";
-import { NextResponse } from "next/server";
+import { Feed } from 'feed';
+import { getBlogPosts } from 'app/lib/posts';
+import { metaData } from 'app/config';
+import { NextResponse } from 'next/server';
 
 export async function generateStaticParams() {
   return [
-    { format: "rss.xml" },
-    { format: "atom.xml" },
-    { format: "feed.json" },
+    { format: 'rss.xml' },
+    { format: 'atom.xml' },
+    { format: 'feed.json' },
   ];
 }
 
@@ -16,16 +16,16 @@ export async function GET(
   { params }: { params: { format: string } }
 ) {
   const { format } = params;
-  const validFormats = ["rss.xml", "atom.xml", "feed.json"];
+  const validFormats = ['rss.xml', 'atom.xml', 'feed.json'];
 
   if (!validFormats.includes(format)) {
     return NextResponse.json(
-      { error: "Unsupported feed format" },
+      { error: 'Unsupported feed format' },
       { status: 404 }
     );
   }
 
-  const BaseUrl = metaData.baseUrl.endsWith("/")
+  const BaseUrl = metaData.baseUrl.endsWith('/')
     ? metaData.baseUrl
     : `${metaData.baseUrl}/`;
 
@@ -34,10 +34,8 @@ export async function GET(
     description: metaData.description,
     id: BaseUrl,
     link: BaseUrl,
-    copyright: `All rights reserved ${new Date().getFullYear()}, ${
-      metaData.title
-    }`,
-    generator: "Feed for Node.js",
+    copyright: `All rights reserved ${new Date().getFullYear()}, ${metaData.title}`,
+    generator: 'Feed for Node.js',
     feedLinks: {
       json: `${BaseUrl}feed.json`,
       atom: `${BaseUrl}atom.xml`,
@@ -50,7 +48,7 @@ export async function GET(
   allPosts.forEach((post) => {
     const postUrl = `${BaseUrl}blog/${post.slug}`;
     const categories = post.metadata.tags
-      ? post.metadata.tags.split(",").map((tag) => tag.trim())
+      ? post.metadata.tags.split(',').map((tag) => tag.trim())
       : [];
 
     feed.addItem({
@@ -68,16 +66,16 @@ export async function GET(
 
   const responseMap: Record<string, { content: string; contentType: string }> =
     {
-      "rss.xml": { content: feed.rss2(), contentType: "application/xml" },
-      "atom.xml": { content: feed.atom1(), contentType: "application/xml" },
-      "feed.json": { content: feed.json1(), contentType: "application/json" },
+      'rss.xml': { content: feed.rss2(), contentType: 'application/xml' },
+      'atom.xml': { content: feed.atom1(), contentType: 'application/xml' },
+      'feed.json': { content: feed.json1(), contentType: 'application/json' },
     };
 
   const response = responseMap[format];
 
   return new NextResponse(response.content, {
     headers: {
-      "Content-Type": response.contentType,
+      'Content-Type': response.contentType,
     },
   });
 }
