@@ -21,7 +21,7 @@ export default function Hero() {
         </div>
         <div className="w-48 h-48 self-center">
           <Image
-            src="/photos/profile-photo.png"
+            src="/photos/profile-photo.jpeg"
             alt="Profile picture"
             width={192}
             height={192}
