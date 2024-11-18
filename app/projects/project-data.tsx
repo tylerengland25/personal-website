@@ -162,3 +162,6 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const getFeaturedProjects = () =>
+  projects.filter((project) => project.featured);
