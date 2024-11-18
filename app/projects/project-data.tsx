@@ -14,6 +14,7 @@ export interface Project {
     title: string;
     url: string;
   }[];
+  featured?: boolean;
 }
 
 export const projectTags = [
@@ -69,6 +70,7 @@ export const projects: Project[] = [
         url: 'https://github.com/username/sports-analytics',
       },
     ],
+    featured: true,
   },
   {
     id: 'stock-price-prediction',
@@ -112,6 +114,7 @@ export const projects: Project[] = [
         url: 'https://docs.example.com/stock-prediction',
       },
     ],
+    featured: true,
   },
   {
     id: 'performance-metrics-tool',
@@ -160,6 +163,7 @@ export const projects: Project[] = [
         url: 'https://example.com/research-paper.pdf',
       },
     ],
+    featured: true,
   },
 ];
 

@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { projects } from '../projects/project-data';
+import { getFeaturedProjects } from '../projects/project-data';
 import ProjectCard from '../projects/components/project-card';
 
 export default function FeaturedProjects() {
-  const featuredProjects = projects.slice(0, 3); // Get first 3 projects
+  const featuredProjects = getFeaturedProjects();
 
   return (
     <div className="mb-32 flex flex-col items-center">
