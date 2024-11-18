@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { getFeaturedProjects } from '../projects/project-data';
+import Image from 'next/image';
+import { projects } from '../projects/project-data';
 
 export default function FeaturedProjects() {
-  const featuredProjects = getFeaturedProjects();
+  const featuredProjects = projects.slice(0, 3); // Get first 3 projects
 
   return (
     <div className="mb-32 flex flex-col items-center">
@@ -18,13 +18,13 @@ export default function FeaturedProjects() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 mb-8">
           {featuredProjects.map((project) => (
             <Link
-              key={project.title}
-              href={project.url}
+              key={project.id}
+              href={`/projects/${project.id}`}
               className="group block rounded-lg border border-gray-300 dark:border-gray-700 p-6 hover:border-gray-400 dark:hover:border-gray-600"
             >
               <div className="relative mb-4 aspect-video overflow-hidden rounded-lg">
                 <Image
-                  src={project.imageUrl || ''}
+                  src={project.thumbnail}
                   alt={project.title}
                   fill
                   className="object-cover transition duration-300 group-hover:scale-105"
@@ -33,8 +33,8 @@ export default function FeaturedProjects() {
               <h3 className="mb-2 text-lg font-space-grotesk font-semibold">
                 {project.title}
               </h3>
-              <p className="text-sm font-roboto-flex text-gray-600">
-                {project.description}
+              <p className="text-sm font-roboto-flex text-gray-600 dark:text-gray-300">
+                {project.shortDescription}
               </p>
             </Link>
           ))}
