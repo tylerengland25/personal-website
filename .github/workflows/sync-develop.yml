@@ -29,6 +29,9 @@ jobs:
 
       - name: Sync develop with main
         run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/tylerengland25/personal-website.git
           git checkout develop
           git merge origin/main
           git push origin develop
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
