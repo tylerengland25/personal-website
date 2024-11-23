@@ -6,7 +6,7 @@ import { Navbar } from './home/components/nav';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './home/components/footer';
-import { ThemeProvider } from './components/theme-switch';
+import { ThemeProvider } from './home/components/theme-switch';
 import { metaData } from './config';
 import { Space_Grotesk, Roboto_Flex } from 'next/font/google';
 
