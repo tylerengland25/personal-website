@@ -14,10 +14,15 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
+}: {
+  params: { slug: string };
 }): Promise<Metadata | undefined> {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return;
+    return {
+      title: 'Not Found',
+      description: 'The page you are looking for does not exist.',
+    };
   }
 
   let {
@@ -27,7 +32,7 @@ export async function generateMetadata({
     image,
   } = post.metadata;
   let ogImage = image
-    ? image
+    ? `${metaData.baseUrl}${image}`
     : `${metaData.baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -54,7 +59,7 @@ export async function generateMetadata({
   };
 }
 
-export default function Blog({ params }) {
+export default function Blog({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
