@@ -4,9 +4,7 @@ import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 import { TweetComponent } from './tweet';
-import { CaptionComponent } from './caption';
 import { YouTubeComponent } from './youtube';
-import { ImageGrid } from './image-grid';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import 'katex/dist/katex.min.css';
@@ -108,10 +106,8 @@ const components = {
   h5: createHeading(5),
   h6: createHeading(6),
   Image: RoundedImage,
-  ImageGrid,
   a: CustomLink,
   StaticTweet: TweetComponent,
-  Caption: CaptionComponent,
   YouTube: YouTubeComponent,
   code: Code,
   Table,

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { CustomMDX } from 'app/components/mdx';
+import { CustomMDX } from 'app/blog/components/mdx';
 import { formatDate, getBlogPosts } from 'app/lib/posts';
 import { metaData } from 'app/config';
 
