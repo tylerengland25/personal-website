@@ -12,10 +12,10 @@ export default function Hero() {
           </div>
           <div className="pl-0">
             <p className="font-roboto-flex text-neutral-800 dark:text-neutral-200 leading-relaxed">
-              Passionate about leveraging technology to solve complex problems
-              in sports analytics. With expertise in full-stack development and
-              data science, I specialize in transforming complex data into
-              actionable insights.
+              A developer passionate about leveraging technology to solve
+              complex problems in sports analytics. With expertise in full-stack
+              development and data science, he specializes in transforming
+              complex data into actionable insights.
             </p>
           </div>
         </div>
