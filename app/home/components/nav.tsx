@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ThemeSwitch } from './theme-switch';
+import { ThemeSwitch } from '../../components/theme-switch';
 import { Space_Grotesk } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({
