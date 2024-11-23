@@ -1,7 +1,7 @@
-import Hero from './components/hero';
-import Skills from './components/skills';
-import FeaturedProjects from './components/featured-projects';
-import About from './components/about';
+import Hero from './home/components/hero';
+import Skills from './home/components/skills';
+import FeaturedProjects from './home/components/featured-projects';
+import About from './home/components/about';
 
 export default function Page() {
   return (
