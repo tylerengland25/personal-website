@@ -12,7 +12,7 @@ export default function BlogPosts() {
       title: metadata.title,
       publishedAt: metadata.publishedAt,
       summary: metadata.summary,
-      tag: metadata.tag,
+      tags: metadata.tags,
       thumbnail: metadata.thumbnail,
     },
   }));

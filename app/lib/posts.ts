@@ -1,18 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import { blogTags, BlogTag } from 'app/blog/components/blog-tags';
 
 type Metadata = {
   title: string;
   publishedAt: string;
   summary: string;
-  tag: BlogTag;
+  tags: string[];
   thumbnail?: string;
 };
-
-function isValidBlogTag(tag: string): tag is BlogTag {
-  return blogTags.includes(tag as BlogTag);
-}
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
@@ -27,10 +22,10 @@ function parseFrontmatter(fileContent: string) {
     let value = valueArr.join(': ').trim();
     value = value.replace(/^['"](.*)['"]$/, '$1');
 
-    if (key.trim() === 'tag') {
-      metadata.tag = isValidBlogTag(value) ? value : undefined;
+    if (key.trim() === 'tags') {
+      metadata.tags = value.split('|');
     } else {
-      metadata[key.trim() as keyof Omit<Metadata, 'tag'>] = value;
+      metadata[key.trim() as keyof Omit<Metadata, 'tags'>] = value;
     }
   });
 
@@ -102,7 +97,7 @@ export function formatDate(date: string, includeRelative = false) {
 
 export function getAllUniqueTags(): string[] {
   const posts = getBlogPosts();
-  const allTags = posts.flatMap((post) => post.metadata.tag);
+  const allTags = posts.flatMap((post) => post.metadata.tags);
   // Remove duplicates and sort alphabetically
   return Array.from(new Set(allTags)).sort();
 }

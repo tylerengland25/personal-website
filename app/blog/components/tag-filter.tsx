@@ -7,7 +7,7 @@ interface BlogPostMetadata {
   title: string;
   publishedAt: string;
   summary: string;
-  tag: string;
+  tags: string[];
   thumbnail?: string;
 }
 
@@ -24,7 +24,7 @@ interface TagFilterProps {
 export function TagFilter({ tags, initialBlogs }: TagFilterProps) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const filteredBlogs = selectedTag
-    ? initialBlogs.filter((post) => post.metadata.tag === selectedTag)
+    ? initialBlogs.filter((post) => post.metadata.tags.includes(selectedTag))
     : initialBlogs;
 
   return (
@@ -78,7 +78,7 @@ export function TagFilter({ tags, initialBlogs }: TagFilterProps) {
               thumbnail={
                 post.metadata.thumbnail || '/images/blog-placeholder.jpg'
               }
-              tag={post.metadata.tag}
+              tags={post.metadata.tags}
             />
           ))}
       </div>

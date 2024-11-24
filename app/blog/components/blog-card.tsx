@@ -7,7 +7,7 @@ interface BlogCardProps {
   publishedAt: string;
   summary: string;
   thumbnail: string;
-  tag: string;
+  tags: string[];
 }
 
 export function BlogCard({
@@ -16,7 +16,7 @@ export function BlogCard({
   publishedAt,
   summary,
   thumbnail,
-  tag,
+  tags = [],
 }: BlogCardProps) {
   return (
     <Link
@@ -35,9 +35,14 @@ export function BlogCard({
         </div>
         <div className="p-4">
           <div className="flex flex-wrap gap-2 mb-2">
-            <span className="inline-block px-3 py-1 text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full">
-              {tag}
-            </span>
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block px-3 py-1 text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
           <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
             {title}
