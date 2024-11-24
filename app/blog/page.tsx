@@ -34,11 +34,7 @@ export default function BlogPosts() {
                 post.metadata.image ||
                 '/images/blog-placeholder.jpg'
               }
-              tag={
-                post.metadata.tag ||
-                post.metadata.tags?.split(',')[0] ||
-                'General'
-              }
+              tag={post.metadata.tag}
             />
           ))}
       </div>

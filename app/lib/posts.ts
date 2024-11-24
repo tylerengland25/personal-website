@@ -1,15 +1,19 @@
 import fs from 'fs';
 import path from 'path';
+import { getAllBlogTags, BlogTag } from 'app/blog/components/blog-tags';
 
 type Metadata = {
   title: string;
   publishedAt: string;
   summary: string;
-  tags: string;
+  tag: BlogTag;
   image?: string;
   thumbnail?: string;
-  tag?: string;
 };
+
+function isValidBlogTag(tag: string): tag is BlogTag {
+  return getAllBlogTags().includes(tag as BlogTag);
+}
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
@@ -23,7 +27,12 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(': ');
     let value = valueArr.join(': ').trim();
     value = value.replace(/^['"](.*)['"]$/, '$1');
-    metadata[key.trim() as keyof Metadata] = value;
+
+    if (key.trim() === 'tag') {
+      metadata.tag = isValidBlogTag(value) ? value : undefined;
+    } else {
+      metadata[key.trim() as keyof Omit<Metadata, 'tag'>] = value;
+    }
   });
 
   return { metadata: metadata as Metadata, content };
