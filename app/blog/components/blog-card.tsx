@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDate } from 'app/lib/posts';
 
 interface BlogCardProps {
   slug: string;
@@ -47,7 +46,7 @@ export function BlogCard({
             {summary}
           </p>
           <time className="text-sm text-gray-500 dark:text-gray-500">
-            {formatDate(publishedAt, false)}
+            {publishedAt}
           </time>
         </div>
       </div>

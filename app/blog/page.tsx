@@ -30,9 +30,7 @@ export default function BlogPosts() {
               publishedAt={post.metadata.publishedAt}
               summary={post.metadata.summary}
               thumbnail={
-                post.metadata.thumbnail ||
-                post.metadata.image ||
-                '/images/blog-placeholder.jpg'
+                post.metadata.thumbnail || '/images/blog-placeholder.jpg'
               }
               tag={post.metadata.tag}
             />

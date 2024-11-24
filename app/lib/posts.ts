@@ -1,18 +1,17 @@
 import fs from 'fs';
 import path from 'path';
-import { getAllBlogTags, BlogTag } from 'app/blog/components/blog-tags';
+import { blogTags, BlogTag } from 'app/blog/components/blog-tags';
 
 type Metadata = {
   title: string;
   publishedAt: string;
   summary: string;
   tag: BlogTag;
-  image?: string;
   thumbnail?: string;
 };
 
 function isValidBlogTag(tag: string): tag is BlogTag {
-  return getAllBlogTags().includes(tag as BlogTag);
+  return blogTags.includes(tag as BlogTag);
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -99,4 +98,11 @@ export function formatDate(date: string, includeRelative = false) {
   }
 
   return `${fullDate} (${formattedDate})`;
+}
+
+export function getAllUniqueTags(): string[] {
+  const posts = getBlogPosts();
+  const allTags = posts.flatMap((post) => post.metadata.tag);
+  // Remove duplicates and sort alphabetically
+  return Array.from(new Set(allTags)).sort();
 }
