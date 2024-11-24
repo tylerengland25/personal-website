@@ -1,9 +1,8 @@
-import Link from 'next/link';
-import { formatDate, getBlogPosts } from 'app/lib/posts';
+import { BlogCard } from './components/blog-card';
+import { getBlogPosts } from 'app/lib/posts';
 
 export const metadata = {
   title: 'Blog',
-  description: 'Nextfolio Blog',
 };
 
 export default function BlogPosts() {
@@ -11,8 +10,8 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
-      <div>
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">Blogs</h1>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {allBlogs
           .sort((a, b) => {
             if (
@@ -24,20 +23,23 @@ export default function BlogPosts() {
             return 1;
           })
           .map((post) => (
-            <Link
+            <BlogCard
               key={post.slug}
-              className="flex flex-col space-y-1 mb-4 transition-opacity duration-200 hover:opacity-80"
-              href={`/blog/${post.slug}`}
-            >
-              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-                <p className="text-black dark:text-white tracking-tight">
-                  {post.metadata.title}
-                </p>
-                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {formatDate(post.metadata.publishedAt, false)}
-                </p>
-              </div>
-            </Link>
+              slug={post.slug}
+              title={post.metadata.title}
+              publishedAt={post.metadata.publishedAt}
+              summary={post.metadata.summary}
+              thumbnail={
+                post.metadata.thumbnail ||
+                post.metadata.image ||
+                '/images/blog-placeholder.jpg'
+              }
+              tag={
+                post.metadata.tag ||
+                post.metadata.tags?.split(',')[0] ||
+                'General'
+              }
+            />
           ))}
       </div>
     </section>
