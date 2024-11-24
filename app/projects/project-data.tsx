@@ -17,19 +17,6 @@ export interface Project {
   featured?: boolean;
 }
 
-export const projectTags = [
-  'Web Development',
-  'Machine Learning',
-  'Data Science',
-  'UI/UX',
-  'Frontend',
-  'Backend',
-  'Full Stack',
-  'React',
-  'Next.js',
-  'Python',
-] as const;
-
 export const projects: Project[] = [
   {
     id: 'sports-analytics-dashboard',
