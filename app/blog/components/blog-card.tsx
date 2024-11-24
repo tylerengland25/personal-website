@@ -24,7 +24,7 @@ export function BlogCard({
       href={`/blog/${slug}`}
       className="group block w-full transition-all hover:no-underline"
     >
-      <div className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all">
+      <div className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all hover:scale-[1.02] duration-300">
         <div className="relative h-48 w-full">
           <Image
             src={thumbnail}
