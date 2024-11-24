@@ -29,10 +29,10 @@ export async function generateMetadata({
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
+    thumbnail,
   } = post.metadata;
-  let ogImage = image
-    ? `${metaData.baseUrl}${image}`
+  let ogImage = thumbnail
+    ? `${metaData.baseUrl}${thumbnail}`
     : `${metaData.baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -79,8 +79,8 @@ export default function Blog({ params }: { params: { slug: string } }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${metaData.baseUrl}${post.metadata.image}`
+            image: post.metadata.thumbnail
+              ? `${metaData.baseUrl}${post.metadata.thumbnail}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${metaData.baseUrl}/blog/${post.slug}`,
             author: {
