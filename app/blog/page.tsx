@@ -19,8 +19,15 @@ export default function BlogPosts() {
   const allTags = getAllUniqueTags();
 
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Blogs</h1>
+    <section className="max-w-6xl mx-auto px-4">
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold mb-4">Blogs</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+          Exploring technology, software development, and personal insights.
+          Here you&apos;ll find articles about web development, programming best
+          practices, and lessons learned from building real-world applications.
+        </p>
+      </div>
       <TagFilter tags={allTags} initialBlogs={allBlogs} />
     </section>
   );
