@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { getFeaturedProjects } from '../projects/project-data';
-import ProjectCard from '../projects/components/project-card';
+import { getFeaturedProjects } from '../../projects/project-data';
+import ProjectCard from '../../projects/components/project-card';
 
 export default function FeaturedProjects() {
   const featuredProjects = getFeaturedProjects();

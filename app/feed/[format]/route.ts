@@ -47,10 +47,7 @@ export async function GET(
 
   allPosts.forEach((post) => {
     const postUrl = `${BaseUrl}blog/${post.slug}`;
-    const categories = post.metadata.tags
-      ? post.metadata.tags.split(',').map((tag) => tag.trim())
-      : [];
-
+    const categories = post.metadata.tags;
     feed.addItem({
       title: post.metadata.title,
       id: postUrl,

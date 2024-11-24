@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { CustomMDX } from 'app/components/mdx';
+import { CustomMDX } from 'app/blog/components/mdx';
 import { formatDate, getBlogPosts } from 'app/lib/posts';
 import { metaData } from 'app/config';
 
@@ -14,20 +14,25 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
+}: {
+  params: { slug: string };
 }): Promise<Metadata | undefined> {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return;
+    return {
+      title: 'Not Found',
+      description: 'The page you are looking for does not exist.',
+    };
   }
 
   let {
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
+    thumbnail,
   } = post.metadata;
-  let ogImage = image
-    ? image
+  let ogImage = thumbnail
+    ? `${metaData.baseUrl}${thumbnail}`
     : `${metaData.baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -54,7 +59,7 @@ export async function generateMetadata({
   };
 }
 
-export default function Blog({ params }) {
+export default function Blog({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -74,8 +79,8 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${metaData.baseUrl}${post.metadata.image}`
+            image: post.metadata.thumbnail
+              ? `${metaData.baseUrl}${post.metadata.thumbnail}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${metaData.baseUrl}/blog/${post.slug}`,
             author: {

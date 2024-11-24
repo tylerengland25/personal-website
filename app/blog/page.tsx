@@ -1,45 +1,34 @@
-import Link from 'next/link';
-import { formatDate, getBlogPosts } from 'app/lib/posts';
+import { getBlogPosts, getAllUniqueTags } from 'app/lib/posts';
+import { TagFilter } from './components/tag-filter';
 
 export const metadata = {
   title: 'Blog',
-  description: 'Nextfolio Blog',
 };
 
 export default function BlogPosts() {
-  const allBlogs = getBlogPosts();
+  const allBlogs = getBlogPosts().map(({ slug, metadata }) => ({
+    slug,
+    metadata: {
+      title: metadata.title,
+      publishedAt: metadata.publishedAt,
+      summary: metadata.summary,
+      tags: metadata.tags,
+      thumbnail: metadata.thumbnail,
+    },
+  }));
+  const allTags = getAllUniqueTags();
 
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
-      <div>
-        {allBlogs
-          .sort((a, b) => {
-            if (
-              new Date(a.metadata.publishedAt) >
-              new Date(b.metadata.publishedAt)
-            ) {
-              return -1;
-            }
-            return 1;
-          })
-          .map((post) => (
-            <Link
-              key={post.slug}
-              className="flex flex-col space-y-1 mb-4 transition-opacity duration-200 hover:opacity-80"
-              href={`/blog/${post.slug}`}
-            >
-              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-                <p className="text-black dark:text-white tracking-tight">
-                  {post.metadata.title}
-                </p>
-                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {formatDate(post.metadata.publishedAt, false)}
-                </p>
-              </div>
-            </Link>
-          ))}
+    <section className="max-w-6xl mx-auto px-4">
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold mb-4">Blogs</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+          Exploring technology, software development, and personal insights.
+          Here you&apos;ll find articles about web development, programming best
+          practices, and lessons learned from building real-world applications.
+        </p>
       </div>
+      <TagFilter tags={allTags} initialBlogs={allBlogs} />
     </section>
   );
 }

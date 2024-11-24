@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { skills } from '../config';
+import { skills } from '../../config';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
