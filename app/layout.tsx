@@ -6,7 +6,6 @@ import { Navbar } from './home/components/nav';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './home/components/footer';
-import { ThemeProvider } from './home/components/theme-switch';
 import { metaData } from './config';
 import { Space_Grotesk, Roboto_Flex } from 'next/font/google';
 
@@ -64,20 +63,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${robotoFlex.variable}`}
-    >
-      <body>
-        <ThemeProvider>
-          <main className="max-w-[90vw] mx-auto">
-            <Navbar />
-            {children}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
-        </ThemeProvider>
+    <html lang="en">
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable} ${robotoFlex.variable} antialiased`}
+      >
+        <main className="min-h-screen">
+          <Navbar />
+          {children}
+        </main>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

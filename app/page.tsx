@@ -4,7 +4,7 @@ import HomeContent from './home/components/home-content';
 export default function Page() {
   return (
     <>
-      <Background />
+      <Background imagePath="/backgrounds/desk-setup-light.webp" />
       <HomeContent />
     </>
   );
