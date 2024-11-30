@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { ThemeSwitch } from './theme-switch';
 import { Space_Grotesk } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({
@@ -37,7 +36,6 @@ export function Navbar() {
           behavior: 'smooth',
           block: 'start',
         });
-        // Optionally update the URL
         window.history.pushState({}, '', href);
       }
     }
@@ -52,7 +50,7 @@ export function Navbar() {
             <Link
               key={path}
               href={path}
-              className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
+              className="font-mono text-lg text-white hover:text-gray-200 transition-colors duration-200 tracking-wide"
               onClick={(e) => handleScroll(e, path)}
             >
               {name}
@@ -65,10 +63,10 @@ export function Navbar() {
           href="/"
           className={`flex flex-col items-center text-center mx-24 ${spaceGrotesk.className}`}
         >
-          <span className="text-5xl font-bold tracking-tight uppercase hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
+          <span className="text-5xl font-bold tracking-tight uppercase text-white hover:text-gray-200 transition-colors">
             Tyler
           </span>
-          <span className="text-5xl font-bold tracking-tight uppercase hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
+          <span className="text-5xl font-bold tracking-tight uppercase text-white hover:text-gray-200 transition-colors">
             England
           </span>
         </Link>
@@ -79,13 +77,12 @@ export function Navbar() {
             <Link
               key={path}
               href={path}
-              className="font-mono text-lg text-neutral-800 dark:text-[#F2F2F2] hover:text-neutral-950 dark:hover:text-white transition-colors duration-200 tracking-wide"
+              className="font-mono text-lg text-white hover:text-gray-200 transition-colors duration-200 tracking-wide"
               onClick={(e) => handleScroll(e, path)}
             >
               {name}
             </Link>
           ))}
-          <ThemeSwitch />
         </div>
       </nav>
     </header>
