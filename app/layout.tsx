@@ -2,7 +2,7 @@ import './global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Navbar } from './home/components/nav';
+import { NavWrapper } from './home/components/nav-wrapper';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './home/components/footer';
@@ -68,7 +68,7 @@ export default function RootLayout({
         className={`${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable} ${robotoFlex.variable} antialiased`}
       >
         <main className="min-h-screen">
-          <Navbar />
+          <NavWrapper />
           {children}
         </main>
         <Footer />
