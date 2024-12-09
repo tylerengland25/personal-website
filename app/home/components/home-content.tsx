@@ -1,29 +1,30 @@
-import Link from 'next/link';
+'use client';
+import { useState } from 'react';
+import TypeWriter from '../../components/type-writer';
+import { Space_Grotesk } from 'next/font/google';
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['700'],
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
 
 export default function HomeContent() {
+  const [showDescription, setShowDescription] = useState(false);
+
   return (
-    <div className="relative h-screen flex items-center justify-center">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-          Building Solutions Through
-          <Link
-            href="/projects"
-            className="text-blue-400 hover:text-blue-300 transition-colors mx-2"
-          >
-            Code
-          </Link>
-          and
-          <Link
-            href="/blog"
-            className="text-green-400 hover:text-green-300 transition-colors mx-2"
-          >
-            Analytics
-          </Link>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
-          Data Scientist and Software Developer specializing in sports analytics
-          and predictive modeling.
-        </p>
+    <div className="absolute inset-0 flex items-start justify-center pt-20">
+      <div className="max-w-4xl px-0 -mt-[75px]">
+        <div className="w-[1000px] text-center">
+          <p className="text-lg md:text-2xl font-mono text-white -ml-20 text-left">
+            <TypeWriter
+              text="Developer specialized in AI. Over five years of experience providing data-driven solutions for businesses. Explore his [projects](/projects), read his [blog](/blog), or [get in touch](/contact)."
+              delay={75}
+              showCursor={true}
+              onComplete={() => setShowDescription(true)}
+            />
+          </p>
+        </div>
       </div>
     </div>
   );
