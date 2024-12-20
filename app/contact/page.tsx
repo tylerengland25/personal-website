@@ -1,4 +1,4 @@
-import Background from '../home/components/background';
+import Background from '../(home)/components/background';
 import ContactForm from './components/contact-form';
 import { socialLinks } from '../config';
 

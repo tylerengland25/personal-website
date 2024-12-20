@@ -3,8 +3,8 @@
 import { projects } from './project-data';
 import { ProjectFilter } from './components/tag-filter';
 import ProjectCard from './components/project-card';
-import Background from '../home/components/background';
-import { Navbar } from '../home/components/nav';
+import Background from '../(home)/components/background';
+import { Navbar } from '../(home)/components/nav';
 
 export default function Projects() {
   const allTags = Array.from(

@@ -1,4 +1,4 @@
-import Background from '../home/components/background';
+import Background from '../(home)/components/background';
 import { getBlogPosts, getAllUniqueTags } from 'app/lib/posts';
 import { TagFilter } from './components/tag-filter';
 

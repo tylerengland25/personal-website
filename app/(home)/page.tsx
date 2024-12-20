@@ -1,7 +1,7 @@
-import Background from './home/components/background';
-import HomeContent from './home/components/home-content';
-import { Navbar } from './home/components/nav';
-import Footer from './home/components/footer';
+import Background from './components/background';
+import HomeContent from './components/home-content';
+import { Navbar } from './components/nav';
+import Footer from './components/footer';
 
 export default function Page() {
   return (
