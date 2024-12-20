@@ -36,7 +36,7 @@ function SocialLinks() {
 
 export default function Footer() {
   return (
-    <small className="p-4 pb-8 text-[#1C1C1C] dark:text-[#D4D4D4] flex justify-between items-center">
+    <small className="p-4 pb-8 text-white flex justify-between items-center">
       <div>
         <time>© {YEAR}</time>{' '}
         <a
