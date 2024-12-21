@@ -14,9 +14,9 @@ export default function HomeContent() {
 
   return (
     <div className="absolute inset-0 flex items-start justify-center pt-20">
-      <div className="max-w-4xl px-0 -mt-[75px]">
-        <div className="w-[1000px] text-center">
-          <p className="text-lg md:text-2xl font-mono text-white -ml-20 text-left">
+      <div className="max-w-4xl px-4 lg:px-0 -mt-[75px]">
+        <div className="w-full lg:w-[1000px] text-center">
+          <p className="text-lg md:text-2xl font-mono text-white lg:-ml-20 text-left px-4 lg:px-0">
             <TypeWriter
               text="Developer specialized in AI. Over five years of experience providing data-driven solutions for businesses. Explore his [projects](/projects), read his [blog](/blog), or [get in touch](/contact)."
               delay={75}

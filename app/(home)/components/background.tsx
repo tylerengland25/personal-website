@@ -21,7 +21,7 @@ export default function Background({
           className="object-cover"
           style={{
             objectFit: 'cover',
-            objectPosition: '50% 50%',
+            objectPosition: 'center center',
           }}
           quality={100}
         />
