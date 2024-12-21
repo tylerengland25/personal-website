@@ -11,7 +11,11 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.id}`}
-      className="relative group block"
+      className="relative group block bg-gray-900/80 rounded-lg p-4
+        hover:bg-gray-900/95 transition-all duration-300
+        hover:transform hover:scale-[1.03] hover:shadow-2xl
+        shadow-xl shadow-black/50 backdrop-blur-md
+        border border-gray-800/50 hover:border-gray-700"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -35,10 +39,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
       </div>
-      <h3 className="mt-4 text-xl font-semibold">{project.title}</h3>
-      <p className="mt-2 text-gray-600 dark:text-gray-300">
-        {project.shortDescription}
-      </p>
+      <h3 className="mt-4 text-xl font-semibold text-white">{project.title}</h3>
+      <p className="mt-2 text-gray-200">{project.shortDescription}</p>
     </Link>
   );
 }
