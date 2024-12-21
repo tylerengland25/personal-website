@@ -2,23 +2,8 @@ import './global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Navbar } from './home/components/nav';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import Footer from './home/components/footer';
-import { ThemeProvider } from './home/components/theme-switch';
 import { metaData } from './config';
-import { Space_Grotesk, Roboto_Flex } from 'next/font/google';
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-});
-
-const robotoFlex = Roboto_Flex({
-  subsets: ['latin'],
-  variable: '--font-roboto-flex',
-});
+import RootLayoutClient from './components/root-layout-client';
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -56,28 +41,15 @@ export const metadata: Metadata = {
   },
 };
 
-const cx = (...classes) => classes.filter(Boolean).join(' ');
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${robotoFlex.variable}`}
-    >
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
-        <ThemeProvider>
-          <main className="max-w-[90vw] mx-auto">
-            <Navbar />
-            {children}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
-        </ThemeProvider>
+        <RootLayoutClient>{children}</RootLayoutClient>
       </body>
     </html>
   );
