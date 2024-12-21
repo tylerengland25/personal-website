@@ -15,7 +15,7 @@ const navItems = {
     { path: '/blog', name: 'BLOG' },
   ],
   right: [
-    { path: '/#about', name: 'ABOUT' },
+    { path: '/about', name: 'ABOUT' },
     { path: '/contact', name: 'CONTACT' },
   ],
 };
