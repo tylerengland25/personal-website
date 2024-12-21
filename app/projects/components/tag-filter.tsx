@@ -27,8 +27,8 @@ export function ProjectFilter({
           className={`px-3 py-1 text-sm font-medium rounded-full transition-colors
             ${
               !selectedTag
-                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
+                ? 'bg-gray-800 text-white'
+                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-700'
             }`}
         >
           All
@@ -40,8 +40,8 @@ export function ProjectFilter({
             className={`px-3 py-1 text-sm font-medium rounded-full transition-colors
               ${
                 tag === selectedTag
-                  ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                  : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
+                  ? 'bg-gray-800 text-white'
+                  : 'bg-gray-700/50 text-gray-300 hover:bg-gray-700'
               }`}
           >
             {tag}

@@ -2,6 +2,7 @@ import Background from '../(home)/components/background';
 import { Navbar } from '../(home)/components/nav';
 import Footer from '../(home)/components/footer';
 import Image from 'next/image';
+import MobileNav from '../(home)/components/mobile-nav';
 
 export const metadata = {
   title: 'About',
@@ -12,16 +13,21 @@ export default function About() {
     <div className="h-screen overflow-hidden relative flex flex-col">
       <Background imagePath="/backgrounds/desk-setup-dark.webp" />
       <div className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <Navbar />
+        <div className="lg:block hidden">
+          <Navbar />
+        </div>
+        <div className="lg:hidden">
+          <MobileNav />
+        </div>
       </div>
       <div className="flex-1 flex flex-col">
-        <div className="fixed top-[200px] bottom-16 left-0 right-0 overflow-y-auto">
-          <div className="max-w-6xl mx-auto px-4 relative">
+        <div className="fixed top-[150px] lg:top-[200px] bottom-16 left-0 right-0 overflow-y-auto">
+          <div className="max-w-6xl mx-auto px-4 relative pb-8">
             <div className="mb-6">
               <h1 className="text-4xl font-bold mb-4 text-white">About</h1>
             </div>
-            <div className="w-full bg-gray-900/80 backdrop-blur-md shadow-xl shadow-black/50 rounded-lg p-8 border border-gray-800/50">
-              <div className="relative w-64 h-64 float-right ml-8 mb-6">
+            <div className="w-full bg-gray-900/80 backdrop-blur-md shadow-xl shadow-black/50 rounded-lg p-4 lg:p-8 border border-gray-800/50">
+              <div className="relative w-full h-64 lg:w-64 lg:float-right lg:ml-8 mb-6">
                 <Image
                   src="/photos/profile-photo.jpeg"
                   alt="Profile picture"
