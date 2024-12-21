@@ -1,5 +1,8 @@
+import Background from '../(home)/components/background';
 import { getBlogPosts, getAllUniqueTags } from 'app/lib/posts';
 import { TagFilter } from './components/tag-filter';
+import { Navbar } from '../(home)/components/nav';
+import Footer from '../(home)/components/footer';
 
 export const metadata = {
   title: 'Blog',
@@ -19,16 +22,26 @@ export default function BlogPosts() {
   const allTags = getAllUniqueTags();
 
   return (
-    <section className="max-w-6xl mx-auto px-4">
-      <div className="mb-12">
-        <h1 className="text-4xl font-bold mb-4">Blogs</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-          Exploring technology, software development, and personal insights.
-          Here you&apos;ll find articles about web development, programming best
-          practices, and lessons learned from building real-world applications.
-        </p>
+    <div className="h-screen overflow-hidden relative flex flex-col">
+      <Background imagePath="/backgrounds/desk-setup-dark.webp" />
+      <div className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+        <Navbar />
       </div>
-      <TagFilter tags={allTags} initialBlogs={allBlogs} />
-    </section>
+      <div className="flex-1 flex flex-col">
+        <div className="fixed top-[200px] left-0 right-0 z-40">
+          <div className="max-w-6xl mx-auto px-4 relative">
+            <div className="mb-6">
+              <h1 className="text-4xl font-bold mb-4 text-white">Blog</h1>
+            </div>
+            <div className="mb-6">
+              <TagFilter tags={allTags} initialBlogs={allBlogs} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="fixed bottom-0 left-0 right-0">
+        <Footer />
+      </div>
+    </div>
   );
 }

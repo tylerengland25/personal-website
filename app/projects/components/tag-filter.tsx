@@ -9,7 +9,11 @@ interface ProjectFilterProps {
   initialProjects: Project[];
 }
 
-export function ProjectFilter({ tags, initialProjects }: ProjectFilterProps) {
+export function ProjectFilter({
+  tags,
+  initialProjects,
+  showProjectCards = true,
+}: ProjectFilterProps & { showProjectCards?: boolean }) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const filteredProjects = selectedTag
     ? initialProjects.filter((project) => project.tags.includes(selectedTag))
@@ -24,7 +28,7 @@ export function ProjectFilter({ tags, initialProjects }: ProjectFilterProps) {
             ${
               !selectedTag
                 ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
+                : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
             }`}
         >
           All
@@ -37,7 +41,7 @@ export function ProjectFilter({ tags, initialProjects }: ProjectFilterProps) {
               ${
                 tag === selectedTag
                   ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
+                  : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
               }`}
           >
             {tag}
@@ -45,11 +49,13 @@ export function ProjectFilter({ tags, initialProjects }: ProjectFilterProps) {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      {showProjectCards && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      )}
     </>
   );
 }
