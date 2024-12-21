@@ -12,7 +12,7 @@ export const socialLinks = {
   github: 'https://github.com/tylerengland25/',
   instagram: 'https://www.instagram.com/tyler_england25/',
   linkedin: 'https://www.linkedin.com/in/tyler-england-50b8b9192/',
-  email: 'tyler_england35@yahoo.com',
+  email: 'contact@tylerengland.ai',
 };
 
 export const skills = [
