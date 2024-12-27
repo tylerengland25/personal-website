@@ -34,74 +34,11 @@ export const projects: Project[] = [
       updates, and created a responsive, intuitive user interface that handles complex data
       representations.
     `,
-    thumbnail: '/projects/sports-betting.png',
-    images: [
-      '/projects/sports-betting-1.png',
-      '/projects/sports-betting-2.png',
-      '/projects/sports-betting-3.png',
-    ],
-    tags: ['Web Development', 'Frontend', 'React', 'Data Science'],
-    url: 'https://example.com/sports-dashboard',
-    technicalSheet: [
-      'React.js',
-      'D3.js',
-      'Node.js',
-      'WebSocket',
-      'MongoDB',
-      'TypeScript',
-      'TailwindCSS',
-    ],
-    resources: [
-      {
-        title: 'GitHub Repository',
-        url: 'https://github.com/username/sports-analytics',
-      },
-    ],
-    featured: true,
-  },
-  {
-    id: 'stock-price-prediction',
-    title: 'Stock Price Prediction',
-    shortDescription: 'Machine learning model for predicting stock prices',
-    fullDescription: `
-      An advanced machine learning system that analyzes historical stock data, market trends,
-      and various economic indicators to predict future stock prices. The platform includes
-      backtesting capabilities, risk assessment tools, and automated trading strategy
-      simulation.
-    `,
-    contributions: `
-      Developed and optimized machine learning models using PyTorch and scikit-learn.
-      Implemented data preprocessing pipelines, feature engineering, and model evaluation
-      frameworks. Created a REST API for model deployment and integration.
-    `,
-    thumbnail: '/projects/stock-analysis.jpeg',
-    images: [
-      '/projects/stock-analysis-1.png',
-      '/projects/stock-analysis-2.png',
-      '/projects/stock-analysis-3.png',
-    ],
-    tags: ['Machine Learning', 'Python', 'Data Science', 'Backend'],
-    url: 'https://example.com/stock-prediction',
-    technicalSheet: [
-      'Python',
-      'PyTorch',
-      'scikit-learn',
-      'FastAPI',
-      'PostgreSQL',
-      'Docker',
-      'AWS',
-    ],
-    resources: [
-      {
-        title: 'GitHub Repository',
-        url: 'https://github.com/username/stock-prediction',
-      },
-      {
-        title: 'Technical Documentation',
-        url: 'https://docs.example.com/stock-prediction',
-      },
-    ],
-    featured: true,
+    thumbnail: '/projects/placeholder.png',
+    images: ['/projects/placeholder.png'],
+    tags: ['Machine Learning'],
+    url: '#',
+    technicalSheet: ['Coming Soon'],
   },
   {
     id: 'performance-metrics-tool',
@@ -119,38 +56,11 @@ export const projects: Project[] = [
       for performance visualization. Developed machine learning models for performance
       prediction and injury risk assessment.
     `,
-    thumbnail: '/projects/discord-stock-thumbnail.png',
-    images: [
-      '/projects/metrics-tool-1.png',
-      '/projects/metrics-tool-2.png',
-      '/projects/metrics-tool-3.png',
-    ],
-    tags: ['Full Stack', 'Machine Learning', 'Next.js', 'Python'],
-    url: 'https://example.com/metrics-tool',
-    technicalSheet: [
-      'Next.js',
-      'Python',
-      'TensorFlow',
-      'PostgreSQL',
-      'Redis',
-      'GraphQL',
-      'AWS',
-    ],
-    resources: [
-      {
-        title: 'GitHub Repository',
-        url: 'https://github.com/username/performance-metrics',
-      },
-      {
-        title: 'API Documentation',
-        url: 'https://api.example.com/docs',
-      },
-      {
-        title: 'Research Paper',
-        url: 'https://example.com/research-paper.pdf',
-      },
-    ],
-    featured: true,
+    thumbnail: '/projects/placeholder.png',
+    images: ['/projects/placeholder.png'],
+    tags: ['Generative AI'],
+    url: '#',
+    technicalSheet: ['Coming Soon'],
   },
 ];
 
