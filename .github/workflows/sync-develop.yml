@@ -1,39 +1,35 @@
-name: Sync Develop with Main
-
-permissions:
-  contents: write
-  pull-requests: write
+name: Rebase develop on main
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    types: [closed]
-    branches:
-      - main
-  workflow_dispatch:
+    types: [ closed ]
+    branches: [ main ]
+
+# Add these permissions
+permissions:
+  contents: write
 
 jobs:
-  sync-develop:
+  rebase:
+    if: github.event.pull_request.merged == true || github.event_name == 'push'
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Configure Git and sync branches
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name 'GitHub Actions Bot'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          echo "https://x-access-token:${TOKEN}@github.com" > ~/.git-credentials
-          git config --global credential.helper store
-          git checkout develop
-          git merge origin/main
-          git push origin develop
+    - name: Set Git config
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Rebase develop
+      run: |
+        git fetch origin develop
+        git checkout develop
+        git rebase origin/main
+        git push origin develop --force-with-lease
