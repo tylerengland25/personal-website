@@ -19,6 +19,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'videographer-portfolio',
+    title: 'Videographer Portfolio',
+    shortDescription:
+      'Modern portfolio website for a professional videographer',
+    fullDescription: `
+      A sleek and modern portfolio website designed to showcase a videographer's work.
+      Built with Next.js and deployed on Vercel, the site features a responsive design,
+      optimized image loading, and smooth animations to present video content in an
+      engaging way.
+    `,
+    contributions: `
+      Developed the full-stack application using Next.js, implementing responsive design
+      principles and optimizing for performance. Set up deployment pipeline with Vercel
+      for seamless updates and reliable hosting.
+    `,
+    thumbnail: '/projects/owenmars/home.png',
+    images: [
+      '/projects/owenmars/about.png',
+      '/projects/owenmars/work.png',
+      '/projects/owenmars/entries.png',
+      '/projects/owenmars/poetry.png',
+    ],
+    tags: ['Next.js', 'Vercel', 'Portfolio'],
+    url: 'https://owenmars.com',
+    technicalSheet: ['Next.js', 'Vercel Deployment', 'Responsive Design'],
+  },
+  {
     id: 'sports-analytics-dashboard',
     title: 'Sports Analytics Dashboard',
     shortDescription: 'Real-time sports analytics and visualization platform',
